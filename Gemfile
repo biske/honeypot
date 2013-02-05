@@ -5,7 +5,10 @@ gem "devise", ">= 2.1.0"
 
 group :test, :development do
   gem 'sqlite3'
+  # This includes rspec-rails in development mode so that we have access to RSpec-specific generators,
+  # and it includes it in test mode in order to run the tests.
   gem "rspec-rails"
+  
 end
 
 group :assets do
@@ -15,9 +18,9 @@ group :assets do
 end
 
 group :test do
-  gem "capybara", ">= 1.1.2"
   gem "factory_girl_rails"
-  gem "cucumber-rails"
+  gem "cucumber-rails", require: false
+  gem "capybara", '1.1.4'
   gem "database_cleaner"
   gem "launchy"
   gem "email_spec"  
