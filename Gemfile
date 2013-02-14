@@ -8,7 +8,7 @@ group :test, :development do
   gem 'sqlite3'
   # This includes rspec-rails in development mode so that we have access to RSpec-specific generators,
   # and it includes it in test mode in order to run the tests.
-  gem "rspec-rails"
+  gem "rspec-rails", "~> 2.12.2"
   
 end
 
