@@ -9,6 +9,6 @@ Honeypot::Application.routes.draw do
     root :to => 'home#index'
   end
   root :to => "static_pages#home"
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'registrations' } 
   resources :users
 end

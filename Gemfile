@@ -3,6 +3,7 @@ gem 'rails', '3.2.11'
 gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem "devise", ">= 2.1.0"
+gem "recaptcha", :require => "recaptcha/rails"
 
 group :test, :development do
   gem 'sqlite3'
