@@ -1,3 +1,3 @@
-<p>Thanks <%= @resource.first_name %> for registering for The Honey_Pot, Please confirm your email by clicking the link below.</p>
+<p>Thanks <%= @resource.first_name + " " + @resource.last_name %> for registering for The Honey_Pot, please confirm your email by clicking the link below.</p>
 
 <p><%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>
