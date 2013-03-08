@@ -2,8 +2,10 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.11'
 gem 'bootstrap-sass'
 gem 'jquery-rails'
-gem "devise", ">= 2.1.0"
-gem "recaptcha", :require => "recaptcha/rails"
+gem 'devise', '>= 2.1.0'
+gem 'recaptcha', :require => 'recaptcha/rails'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 group :test, :development do
   gem 'sqlite3'
