@@ -40,4 +40,27 @@ class User < ActiveRecord::Base
       end
     end
   end
+  
+  
+  # Override default update method so it accepts updating without current password
+  def update_with_password(params={})
+    current_password = params.delete(:current_password)
+    check_password = true
+    if params[:password].blank?
+      params.delete(:password)
+      if params[:password_confirmation].blank?
+        params.delete(:password_confirmation)
+        check_password = false
+      end 
+    end
+    result = if valid_password?(current_password) || !check_password
+      update_attributes(params)
+    else
+      self.errors.add(:current_password, current_password.blank? ? :blank : :invalid)
+      self.attributes = params
+      false
+    end
+    clean_up_passwords
+    result
+  end
 end
