@@ -63,4 +63,9 @@ class User < ActiveRecord::Base
     clean_up_passwords
     result
   end
+  
+  def update_without_password(params={})
+    params.delete(:current_password)
+    super(params)
+  end
 end
