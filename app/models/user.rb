@@ -26,7 +26,6 @@ class User < ActiveRecord::Base
                           )
     end
     user.skip_confirmation!
-    logger.info user.inspect
     user.save!
     user
   end

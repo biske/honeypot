@@ -1,8 +1,12 @@
-<h2>Sign in</h2>
-
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class =>  'form-signin' }) do |f| %>
 <%= devise_error_messages! %>
 
+<div class="center"><%= link_to "Sing in with Facebook", user_omniauth_authorize_path(:facebook), :id => "facebook-sign-up", :class => "btn btn-large btn-primary" %>
+</div>
+<br />
+<div class="center">or</div>
+
+<h2>Regular sign in</h2>
 <div>
 	<%= f.label :email %>
 	<%= f.email_field :email, :autofocus => true %>
