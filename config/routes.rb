@@ -10,7 +10,9 @@ Honeypot::Application.routes.draw do
   end
   root :to => "static_pages#home"
   devise_for :users, controllers: { registrations: 'registrations', omniauth_callbacks: "users/omniauth_callbacks" }
-  resources :users
+  resources :users do
+    resources :tasks
+  end
   devise_scope :user do
     get '/users/auth/:provider' => 'users/omniauth_callbacks#passthru'
   end
