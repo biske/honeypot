@@ -6,11 +6,12 @@ Honeypot::Application.routes.draw do
   get '/how_it_works',  to: 'static_pages#how_it_works'
 
   authenticated :user do
-    root :to => 'home#index'
+    root :to => 'users#dashboard'
   end
   root :to => "static_pages#home"
   devise_for :users, controllers: { registrations: 'registrations', omniauth_callbacks: "users/omniauth_callbacks" }
   resources :users do
+    get "dashboard"
     resources :tasks
   end
   devise_scope :user do

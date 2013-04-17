@@ -1,0 +1,20 @@
+<p>User: <%= current_user.first_name %></p>
+<p>User: <%= current_user.last_name %></p>
+<p>Email: <%= current_user.email if current_user.email %></p>
+
+<%= link_to "Delete account", user_registration_path, confirm: "Are you sure you want to delete account?", method: 'delete' %>
+
+<table id="tasks-table">
+	<tr>
+		<th>Title</th>
+		<th>Description</td>
+	</tr>
+<% current_user.tasks.each do |task| %>
+	<tr>
+		<td><%= task.title %></td>
+		<td><%= task.description%><td>
+	</tr>
+<% end %>
+</table>
+
+<%= link_to "Create new task", new_user_task_path(current_user), class: "btn btn-large btn-primary" %>

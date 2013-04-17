@@ -1,4 +1,4 @@
 class Task < ActiveRecord::Base
   belongs_to :user
-  attr_accessible :description, :title
+  attr_accessible :title, :description
 end
