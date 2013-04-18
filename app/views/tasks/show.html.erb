@@ -1,0 +1,6 @@
+<div>Id: <%= @task.id %></div>
+<div>Title: <%= @task.title %></div>
+<div>Description: <%= @task.description%></div>
+
+<%= link_to "Update task", edit_user_task_path(@task), class: 'btn btn-primary' %>
+<%= link_to "Delete task", [current_user, @task], confirm: 'Are you sure you want to delete this task?', method: 'delete', class: 'btn btn-danger' %>

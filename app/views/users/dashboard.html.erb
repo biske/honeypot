@@ -2,18 +2,23 @@
 <p>User: <%= current_user.last_name %></p>
 <p>Email: <%= current_user.email if current_user.email %></p>
 
-<%= link_to "Delete account", user_registration_path, confirm: "Are you sure you want to delete account?", method: 'delete' %>
-
-<table id="tasks-table">
-	<tr>
-		<th>Title</th>
-		<th>Description</td>
-	</tr>
+<%= link_to "Delete account", user_registration_path, confirm: "Are you sure you want to delete account?", method: 'delete', class: 'btn btn-danger' %>
+<br />
+<br />
+<table id="tasks-table" class="table table-striped table-bordered table-hover">
+	<thead>
+		<tr>
+			<th>Title</th>
+			<th>Description</td>
+		</tr>
+	</thead>
 <% current_user.tasks.each do |task| %>
-	<tr>
-		<td><%= task.title %></td>
-		<td><%= task.description%><td>
-	</tr>
+	<tbody>
+		<tr>
+			<td><%= link_to task.title, [current_user, task] %></td>
+			<td><%= task.description %><td>
+		</tr>
+	</tbody>
 <% end %>
 </table>
 

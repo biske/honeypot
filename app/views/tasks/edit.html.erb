@@ -1,0 +1,17 @@
+<h1>Edit task</h1>
+
+<%= form_for([current_user, @task], method: 'PUT', :html => { :class => 'form-signin'}) do |f| %>
+	<div>
+		<%= f.label :title %>
+		<%= f.text_field :title %>
+	</div>
+	
+	<div>
+		<%= f.label :description %>
+		<%= f.text_area :description, cols: 10, rows: 10 %>
+	</div>
+	
+	<div>
+		<%= f.submit "Update", class: "btn btn-large btn-primary" %>
+	</div>
+<% end %>

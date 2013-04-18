@@ -13,4 +13,16 @@ class TasksController < ApplicationController
       redirect_to new_user_task_path(current_user)
     end
   end
+  
+  def show
+    @task = Task.find(params[:id])
+  end
+  
+  def edit
+    @task = Task.find(params[:id])
+  end
+  
+  def update
+    
+  end
 end
