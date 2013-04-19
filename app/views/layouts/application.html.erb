@@ -14,12 +14,12 @@
     		<div class="alert alert-success">
   				<button type="button" class="close" data-dismiss="alert">&times;</button>
   				<%= flash[:notice] %>
-				</div>
+			</div>
     	<% elsif flash[:alert] %>
     		<div class="alert alert-error">
   				<button type="button" class="close" data-dismiss="alert">&times;</button>
   				<%= flash[:alert] %>
-				</div>
+			</div>
     	<% end%>
       <%= yield %>
       <%= render 'layouts/footer'%>
