@@ -25,9 +25,17 @@ class TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
     if @task.update_attributes(params[:task])
+      flash[:notice] = "Task successfuly updated."
       redirect_to [current_user, @task]
     else
       render action: "edit"
     end
+  end
+  
+  def destroy
+    @task = Task.find(params[:id])
+    @task.destroy
+    flash[:notice] = "Task successfuly deleted."
+    redirect_to user_dashboard_path(current_user)
   end
 end
