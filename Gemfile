@@ -6,6 +6,7 @@ gem 'devise', '>= 2.1.0'
 gem 'recaptcha', :require => 'recaptcha/rails'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'gmaps4rails'
 
 group :test, :development do
   gem 'sqlite3'

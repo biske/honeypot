@@ -10,5 +10,6 @@ class UsersController < ApplicationController
   end
   
   def dashboard
+    @json = Task.all.to_gmaps4rails
   end
 end

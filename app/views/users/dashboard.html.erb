@@ -4,6 +4,7 @@
 
 <%= link_to "Delete account", user_registration_path, confirm: "Are you sure you want to delete account?", method: 'delete', class: 'btn btn-danger' %>
 <br />
+<%= gmaps4rails(@json) %>
 <br />
 <table id="tasks-table" class="table table-striped table-bordered table-hover">
 	<thead>
