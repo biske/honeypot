@@ -1,6 +1,8 @@
 <div>Id: <%= @task.id %></div>
 <div>Title: <%= @task.title %></div>
 <div>Description: <%= @task.description%></div>
+<br />
+<%= gmaps4rails(@json) %>
 
 <%= link_to "Back", root_path, class: 'btn' %>
 <%= link_to "Update task", edit_user_task_url(current_user, @task), class: 'btn btn-primary' %>

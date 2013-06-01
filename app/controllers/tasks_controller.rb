@@ -16,6 +16,7 @@ class TasksController < ApplicationController
   
   def show
     @task = Task.find(params[:id])
+    @json = @task.to_gmaps4rails
   end
   
   def edit
