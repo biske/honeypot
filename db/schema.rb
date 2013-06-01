@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130530230427) do
+ActiveRecord::Schema.define(:version => 20130601130758) do
 
   create_table "tasks", :force => true do |t|
     t.string   "title"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(:version => 20130530230427) do
     t.float    "latitude"
     t.float    "longitude"
     t.boolean  "gmaps"
-    t.string   "street"
+    t.string   "where"
     t.string   "city"
     t.string   "country"
   end
