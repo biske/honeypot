@@ -10,14 +10,14 @@
 	<thead>
 		<tr>
 			<th>Title</th>
-			<th>Description</td>
+			<th>What</td>
 		</tr>
 	</thead>
 <% current_user.tasks.each do |task| %>
 	<tbody>
 		<tr>
 			<td><%= link_to task.title, [current_user, task] %></td>
-			<td><%= task.description %><td>
+			<td><%= task.what %><td>
 		</tr>
 	</tbody>
 <% end %>

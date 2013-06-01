@@ -1,14 +1,25 @@
 <h2>Add task</h2>
 
 <%= form_for([current_user, @task], :html => { :class => 'form-signin'}) do |f| %>
+	<% if @task.errors.any? %>
+		<% @task.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+		<% end %>
+	<% end %>
+	
 	<div>
 		<%= f.label :title %>
 		<%= f.text_field :title %>
 	</div>
 	
 	<div>
-		<%= f.label :description %>
-		<%= f.text_area :description, cols: 10, rows: 10 %>
+		<%= f.label :what %>
+		<%= f.text_area :what, cols: 10, rows: 10 %>
+	</div>
+	
+	<div>
+		<%= f.label :who %>
+		<%= f.text_field :who %>
 	</div>
 	
 	<div>

@@ -11,18 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130601161732) do
+ActiveRecord::Schema.define(:version => 20130601170520) do
 
   create_table "tasks", :force => true do |t|
     t.string   "title"
-    t.text     "description"
+    t.text     "who"
     t.integer  "user_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.float    "latitude"
     t.float    "longitude"
     t.boolean  "gmaps"
     t.string   "where"
+    t.string   "what"
   end
 
   add_index "tasks", ["user_id"], :name => "index_tasks_on_user_id"
