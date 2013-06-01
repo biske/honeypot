@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130601170520) do
+ActiveRecord::Schema.define(:version => 20130601191741) do
 
   create_table "tasks", :force => true do |t|
     t.string   "title"
@@ -24,6 +24,10 @@ ActiveRecord::Schema.define(:version => 20130601170520) do
     t.boolean  "gmaps"
     t.string   "where"
     t.string   "what"
+    t.datetime "when"
+    t.integer  "duration"
+    t.decimal  "how_much"
+    t.string   "contact"
   end
 
   add_index "tasks", ["user_id"], :name => "index_tasks_on_user_id"

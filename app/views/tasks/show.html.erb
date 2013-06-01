@@ -1,7 +1,11 @@
 <div>Id: <%= @task.id %></div>
 <div>Title: <%= @task.title %></div>
-<div>What: <%= @task.what %>
-<div>Who: <%= @task.who %></div>
+<div>Who: <%= @task.who %>
+<div>What: <%= @task.what %></div>
+<div>When: <%= @task.when %></div>
+<div>Duration: <%= @task.duration %> seconds</div>
+<div>How much: <%= @task.how_much %>$</div>
+<div>Contact: <%= link_to "Contact", "http://#{@task.contact}" %></div>
 <br />
 <%= gmaps4rails(@json) %>
 

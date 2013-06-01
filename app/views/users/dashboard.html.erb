@@ -10,6 +10,7 @@
 	<thead>
 		<tr>
 			<th>Title</th>
+			<th>Who</th>
 			<th>What</td>
 		</tr>
 	</thead>
@@ -17,6 +18,7 @@
 	<tbody>
 		<tr>
 			<td><%= link_to task.title, [current_user, task] %></td>
+			<td><%= task.who %></td>
 			<td><%= task.what %><td>
 		</tr>
 	</tbody>
