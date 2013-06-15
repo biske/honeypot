@@ -10,5 +10,5 @@
  *
  *= require_self
  *= require_tree .
+ *= require jquery.ui.all 
  */
-@import url(http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/cupertino/jquery-ui.css)
