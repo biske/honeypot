@@ -14,6 +14,20 @@ class User < ActiveRecord::Base
   validates_presence_of :first_name, :last_name
   validates_uniqueness_of :email, :case_sensitive => false
   
+  # method for storing days, hours and minutes into duration in seconds.
+  def dhs_to_duration(days, hours, seconds)
+    # TODO
+    # Something like this.
+    #self.duration = Time.duration(days, hours, seconds)
+  end
+  
+  # Convert duration (seconds) to days, hours and minutes for
+  # showing on form.
+  def duration_to_dhs
+    # TODO
+  end
+  
+  
   
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
