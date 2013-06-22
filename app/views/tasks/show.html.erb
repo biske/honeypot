@@ -6,6 +6,9 @@
 <div>Duration: <%= @task.duration %> seconds</div>
 <div>How much: <%= @task.how_much %>$</div>
 <div>Contact: <%= link_to "Contact", "http://#{@task.contact}" %></div>
+<div>Image:</div>
+<div><%= image_tag @task.image_url(:thumb).to_s %></div>
+<br />
 <br />
 <%= gmaps4rails(@json) %>
 

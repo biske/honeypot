@@ -9,6 +9,8 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'gmaps4rails'
 
+gem 'carrierwave'
+gem 'rmagick'
 
 group :test, :development do
   gem 'sqlite3'

@@ -1,6 +1,6 @@
 <h2>Add task</h2>
 
-<%= form_for([current_user, @task], :html => { :class => 'form-signin'}) do |f| %>
+<%= form_for([current_user, @task], :html => { multipart:true, :class => 'form-signin'}) do |f| %>
 	<% if @task.errors.any? %>
 		<% @task.errors.full_messages.each do |msg| %>
 			<li><%= msg %></li>
@@ -51,6 +51,10 @@
 	<div>
 		<%= f.label :contact %>
 		<%= f.text_field :contact, :size => 13 %>
+	</div>
+	
+	<div>
+		<%= f.file_field :image %>
 	</div>
 
 	<div>
