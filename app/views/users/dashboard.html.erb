@@ -13,17 +13,22 @@
 			<th>Title</th>
 			<th>Who</th>
 			<th>What</td>
+			<th></th>
 		</tr>
 	</thead>
-<% current_user.tasks.each do |task| %>
 	<tbody>
-		<tr>
-			<td><%= link_to task.title, [current_user, task] %></td>
-			<td><%= task.who %></td>
-			<td><%= task.what %><td>
-		</tr>
+	<% current_user.tasks.each do |task| %>
+			<tr>
+				<td><%= link_to task.title, [current_user, task] %></td>
+				<td><%= task.who %></td>
+				<td><%= task.what %><td>
+				<td>
+					<%= link_to "Update", edit_user_task_url(current_user, task), class: 'btn btn-small btn-primary' %>
+					<%= link_to "Delete task", [current_user, task], confirm: 'Are you sure you want to delete this task?', method: 'delete', class: 'btn btn-small btn-danger' %>
+				</td>
+			</tr>
+	<% end %>
 	</tbody>
-<% end %>
 </table>
 
 <%= link_to "Create new task", new_user_task_path(current_user), class: "btn btn-primary" %>
