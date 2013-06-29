@@ -5,7 +5,7 @@
 <div>When: <%= @task.when %></div>
 <div>Duration: <%= @task.duration %> seconds</div>
 <div>How much: <%= @task.how_much %>$</div>
-<div>Contact: <%= link_to "Contact", "http://#{@task.contact}" %></div>
+<div>Contact: <%= link_to "#{@task.contact}", "http://#{@task.contact}" %></div>
 <div>Image:</div>
 <div><%= link_to image_tag(@task.image_url(:thumb).to_s), @task.image_url %></div>
 <br />

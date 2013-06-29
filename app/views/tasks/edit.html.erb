@@ -9,49 +9,50 @@
 
 	<div>
 		<%= f.label :title %>
-		<%= f.text_field :title %>
+		<%= f.text_field :title, placeholder: 'Task title' %>
 	</div>
 	
 	<div>
 		<%= f.label :who %>
-		<%= f.text_field :who %>
+		<%= f.text_field :who, placeholder: 'Who you are looking for' %>
 	</div>
 	
 	<div>
 		<%= f.label :what %>
-		<%= f.text_area :what, cols: 10, rows: 10 %>
+		<%= f.text_area :what, cols: 10, rows: 10, placeholder: 'Description of task' %>
 	</div>
 	
 	<div>
 		<%= f.label :where %>
-		<%= f.text_field :where %>
+		<%= f.text_field :where, placeholder: 'Address or city or any object' %>
 	</div>
 
 	<div>
 		<%= f.label :when %>
-		<%= f.text_field :when %>
+		<%= f.text_field :when, placeholder: 'Date and time' %>
 	</div>
-
+	
+	
 	<div>
-		<%= f.label :days %>
-		<%= f.text_field :days %>
-		<%= f.label :hours %>
-		<%= f.text_field :hours %>
-		<%= f.label :minutes %>
-		<%= f.text_field :minutes %>
+		<label>Duration:</label>
+		<%= f.text_field :days, :size => "15", placeholder: 'Duration in days' %> days, 
+		<%= f.text_field :hours, :size => 2, placeholder: 'Duration in hours' %> hours,
+		<%= f.text_field :minutes, :size => 2, placeholder: 'Duration in minutes' %> minutes
 	</div>
+	
 	
 	<div>
 		<%= f.label :how_much %>
-		<%= f.text_field :how_much %>
+		<%= f.text_field :how_much, placeholder: "How much money" %>
 	</div>
 	
 	<div>
 		<%= f.label :contact %>
-		<%= f.text_field :contact %>
+		<%= f.text_field :contact, :size => 10, placeholder: 'Social network or email' %>
 	</div>
 	
 	<div>
+		<%= f.label :image %>
 		<%= f.file_field :image %>
 	</div>
 	
