@@ -15,8 +15,10 @@ class TasksController < ApplicationController
     params[:task].delete(:minutes)
     @task = current_user.tasks.build(params[:task])
     if @task.save
+      flash[:notice] = "Task successfuly created."
       redirect_to user_dashboard_path(current_user)
     else
+      flash[:notice] = "Correct errors."
       redirect_to new_user_task_path(current_user)
     end
   end

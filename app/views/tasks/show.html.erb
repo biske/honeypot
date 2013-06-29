@@ -6,8 +6,13 @@
 <div>Duration: <%= @task.duration %> seconds</div>
 <div>How much: <%= @task.how_much %>$</div>
 <div>Contact: <%= link_to "#{@task.contact}", "http://#{@task.contact}" %></div>
-<div>Image:</div>
-<div><%= link_to image_tag(@task.image_url(:thumb).to_s), @task.image_url %></div>
+
+<% if @task.image.blank? %>
+	<div>Image: Not uploaded</div>
+<% else %>
+	<div>Image:</div>
+	<div><%= link_to image_tag(@task.image_url(:thumb).to_s), @task.image_url %></div>
+<% end %>
 <br />
 <br />
 <%= gmaps({
