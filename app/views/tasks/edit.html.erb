@@ -33,11 +33,11 @@
 	</div>
 	
 	
-	<div>
+	<div id="spiners">
 		<label>Duration:</label>
-		<%= f.text_field :days, :size => "15", placeholder: 'Duration in days' %> days, 
-		<%= f.text_field :hours, :size => 2, placeholder: 'Duration in hours' %> hours,
-		<%= f.text_field :minutes, :size => 2, placeholder: 'Duration in minutes' %> minutes
+		<%= f.text_field :days, class: "input-small", placeholder: 'days' %> days<br/> 
+		<%= f.text_field :hours, class: "input-small", placeholder: 'hours' %> hours<br/>
+		<%= f.text_field :minutes, class: "input-small", placeholder: 'minutes' %> minutes
 	</div>
 	
 	
@@ -48,7 +48,7 @@
 	
 	<div>
 		<%= f.label :contact %>
-		<%= f.text_field :contact, :size => 10, placeholder: 'Social network or email' %>
+		<%= f.text_field :contact, placeholder: 'Social network or email' %>
 	</div>
 	
 	<div>
