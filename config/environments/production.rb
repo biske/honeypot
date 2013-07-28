@@ -1,8 +1,11 @@
 Honeypot::Application.configure do
-# Settings specified here will take precedence over those in config/application.rb
+  # Settings specified here will take precedence over those in config/application.rb
 
-# Code is not reloaded between requests
+  # Code is not reloaded between requests
   config.cache_classes = true
+  
+  # Needed by Rails 4
+  config.eager_load = true
 
   # Full error reports are disabled and caching is turned on
   config.consider_all_requests_local       = false
@@ -13,6 +16,9 @@ Honeypot::Application.configure do
 
   # Compress JavaScripts and CSS
   config.assets.compress = true
+  
+  # Needed by Rails 4
+  config.assets.js_compressor = :uglifier
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
   config.assets.compile = true

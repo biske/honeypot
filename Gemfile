@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
-gem 'rails', '3.2.11'
+gem 'rails', '4.0.0'
 gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem 'devise', '>= 2.1.0'
+gem 'devise', '>= 3.0.0'
 gem 'recaptcha', :require => 'recaptcha/rails'
 gem 'omniauth'
 gem 'omniauth-facebook'
@@ -12,11 +12,20 @@ gem 'gmaps4rails'
 gem 'carrierwave'
 gem 'rmagick'
 
+gem 'rb-readline', '~> 0.4.2'
+
+# Decrecation
+gem 'protected_attributes'
+gem 'rails-observers'
+gem 'actionpack-page_caching'
+gem 'actionpack-action_caching'
+gem 'activerecord-deprecated_finders'
+
 group :test, :development do
   gem 'sqlite3'
   # This includes rspec-rails in development mode so that we have access to RSpec-specific generators,
   # and it includes it in test mode in order to run the tests.
-  gem "rspec-rails", "~> 2.12.2"
+  gem "rspec-rails"
   
 end
 
@@ -24,11 +33,9 @@ group :development do
   gem 'pry'
 end
 
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'uglifier', '>= 1.0.3'
-end
+gem 'sass-rails'
+gem 'coffee-rails'
+gem 'uglifier'
 
 group :test do
   gem "factory_girl_rails"

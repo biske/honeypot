@@ -8,7 +8,6 @@ class TasksController < ApplicationController
   def create
     # Task should be created manually. For example:
     # Convert from fields days, hours and minutes to duration in seconds.
-    #binding.pry
     params[:task][:duration] = (params[:task][:days].to_i * 86400 + params[:task][:hours].to_i * 3600 + params[:task][:minutes].to_i * 60).to_s
     params[:task].delete(:days)
     params[:task].delete(:hours)
@@ -24,6 +23,7 @@ class TasksController < ApplicationController
   end
   
   def show
+    # Double check it :)
     @task = Task.find(params[:id])
     @json = @task.to_gmaps4rails
   end
@@ -33,7 +33,7 @@ class TasksController < ApplicationController
   end
   
   def update
-    params[:task][:duration] = (params[:task][:days].to_i * 86400 + params[:task][:hours].to_i * 3600 + params[:task][:minutes].to_i * 60).to_s
+    params[:duration] = (params[:days].to_i * 86400 + params[:hours].to_i * 3600 + params[:minutes].to_i * 60).to_s
     params[:task].delete(:days)
     params[:task].delete(:hours)
     params[:task].delete(:minutes)
@@ -51,5 +51,10 @@ class TasksController < ApplicationController
     @task.destroy
     flash[:notice] = "Task successfuly deleted."
     redirect_to user_dashboard_path(current_user)
+  end
+  
+  private
+  def task_params
+    params.require(:task).permit(:title, :who, :what, :where, :when, :duration, :how_much, :contact, :image)
   end
 end

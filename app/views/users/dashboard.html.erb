@@ -1,11 +1,15 @@
-<p>User: <%= current_user.first_name %></p>
-<p>User: <%= current_user.last_name %></p>
+<p>First name: <%= current_user.first_name %></p>
+<p>Last name: <%= current_user.last_name %></p>
 <p>Email: <%= current_user.email if current_user.email %></p>
 
 <%= link_to "Delete account", user_registration_path, confirm: "Are you sure you want to delete account?", method: 'delete', class: 'btn btn-danger' %>
 <br />
 <br />
-<%= gmaps4rails(@json) %>
+<%= gmaps({
+			"map_options"	=> { "auto_zoom" => false, "zoom" => 15 },
+			"markers" 		=> { "data" => @json }
+		})
+%>
 <br />
 <table id="tasks-table" class="table table-striped table-bordered table-hover">
 	<thead>
