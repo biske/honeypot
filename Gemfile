@@ -12,8 +12,6 @@ gem 'gmaps4rails'
 gem 'carrierwave'
 gem 'rmagick'
 
-gem 'rb-readline', '~> 0.4.2'
-
 # Decrecation
 gem 'protected_attributes'
 gem 'rails-observers'

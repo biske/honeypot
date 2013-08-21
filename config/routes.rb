@@ -1,4 +1,6 @@
 Honeypot::Application.routes.draw do
+  # resources :point_of_views
+
   get "static_pages/home"
   get '/help',          to: 'static_pages#help'
   get '/about',         to: 'static_pages#about'
@@ -15,6 +17,7 @@ Honeypot::Application.routes.draw do
   resources :users do
     get "dashboard"
     resources :tasks
+    resources :point_of_views
   end
   devise_scope :user do
     get '/users/auth/:provider' => 'users/omniauth_callbacks#passthru'

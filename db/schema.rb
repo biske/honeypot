@@ -11,19 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130622222307) do
+ActiveRecord::Schema.define(version: 20130820201051) do
+
+  create_table "point_of_views", force: true do |t|
+    t.text     "what"
+    t.string   "where"
+    t.integer  "duration"
+    t.decimal  "how_much"
+    t.string   "contact"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
 
   create_table "tasks", force: true do |t|
     t.string   "title"
-    t.text     "who"
+    t.string   "who"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.float    "latitude"
     t.float    "longitude"
     t.boolean  "gmaps"
     t.string   "where"
-    t.string   "what"
+    t.text     "what",       limit: 255
     t.datetime "when"
     t.integer  "duration"
     t.decimal  "how_much"

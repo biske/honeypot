@@ -49,7 +49,7 @@ class TasksController < ApplicationController
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
-    flash[:notice] = "Task successfuly deleted."
+    flash[:notice] = "Task successfully deleted."
     redirect_to user_dashboard_path(current_user)
   end
   
