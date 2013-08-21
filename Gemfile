@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+ruby '2.0.0'
+
 gem 'rails', '4.0.0'
 gem 'bootstrap-sass'
 gem 'jquery-rails'
@@ -47,4 +49,5 @@ end
 group :production do
   gem 'pg', '0.12.2'
   gem 'therubyracer-heroku'
+  gem 'rails_12factor'
 end
