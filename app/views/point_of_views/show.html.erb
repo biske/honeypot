@@ -1,36 +1,36 @@
-<p id="notice"><%= notice %></p>
-
-<p>
+<div>
   <strong>Who:</strong>
   <%= current_user.fullname %>
-</p>
+</div>
 
-<p>
+<div>
   <strong>What:</strong>
   <%= @point_of_view.what %>
-</p>
+</div>
 
-<p>
+<div>
   <strong>Where:</strong>
   <%= @point_of_view.where %>
-</p>
+</div>
 
-<p>
+<div>
   <strong>Duration:</strong>
-  <%= @point_of_view.duration %>
-</p>
+  <%= @point_of_view.days %> days, <%= @point_of_view.hours %> hours, <%= @point_of_view.minutes %> minutes.
+</div>
 
-<p>
+<div>
   <strong>How much:</strong>
-  <%= @point_of_view.how_much %>
-</p>
+  <%= @point_of_view.how_much %>$
+</div>
 
-<p>
+<div>
   <strong>Contact:</strong>
-  <%= @point_of_view.contact %>
-</p>
+  <%= link_to "#{@point_of_view.contact}", "http://#{@point_of_view.contact}" %>
+</div>
+
 <br />
 <br />
+
 <%= gmaps({
 			"map_options"	=> { "auto_zoom" => false, "zoom" => 15 },
 			"markers" 		=> { "data" => @json } 
