@@ -9,6 +9,8 @@ class PointOfViewsController < ApplicationController
 
   # GET /point_of_views/1
   def show
+    @json = @point_of_view.to_gmaps4rails
+    binding.pry
   end
 
   # GET /point_of_views/new

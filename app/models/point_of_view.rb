@@ -1,5 +1,10 @@
 class PointOfView < ActiveRecord::Base
   belongs_to :user
+  acts_as_gmappable
+  
+  def gmaps4rails_address
+    self.where
+  end
   
   def days
     if self.duration
