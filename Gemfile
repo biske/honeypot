@@ -48,6 +48,5 @@ end
 
 group :production do
   gem 'pg'
-  gem 'therubyracer-heroku'
   gem 'rails_12factor'
 end
