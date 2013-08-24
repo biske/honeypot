@@ -1,4 +1,5 @@
 class PointOfViewsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_point_of_view, only: [:show, :edit, :update, :destroy]
 
   # GET /point_of_views
@@ -21,6 +22,10 @@ class PointOfViewsController < ApplicationController
 
   # POST /point_of_views
   def create
+    params[:point_of_view][:duration] = (params[:point_of_view][:days].to_i * 86400 + params[:point_of_view][:hours].to_i * 3600 + params[:point_of_view][:minutes].to_i * 60).to_s
+    params[:point_of_view].delete(:days)
+    params[:point_of_view].delete(:hours)
+    params[:point_of_view].delete(:minutes)
     @point_of_view = current_user.point_of_views.new(point_of_view_params)
 
     if @point_of_view.save
@@ -34,8 +39,13 @@ class PointOfViewsController < ApplicationController
 
   # PATCH/PUT /point_of_views/1
   def update
+    params[:point_of_view][:duration] = (params[:point_of_view][:days].to_i * 86400 + params[:point_of_view][:hours].to_i * 3600 + params[:point_of_view][:minutes].to_i * 60).to_s
+    params[:point_of_view].delete(:days)
+    params[:point_of_view].delete(:hours)
+    params[:point_of_view].delete(:minutes)
     if @point_of_view.update(point_of_view_params)
-      redirect_to @point_of_view, notice: 'Point of view was successfully updated.'
+      flash[:notice] = 'Point of view was successfully updated.'
+      redirect_to user_dashboard_path(current_user)
     else
       render action: 'edit'
     end

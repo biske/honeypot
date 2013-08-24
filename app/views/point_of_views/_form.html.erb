@@ -20,10 +20,12 @@
 		<%= f.text_field :where, placeholder: 'Address or city or any object' %>
 	</div>
   
-  <div class="field">
-    <%= f.label :duration %><br>
-    <%= f.number_field :duration %>
-  </div>
+	<div id="spiners">
+		<label>Duration:</label>
+		<%= f.text_field :days, class: "input-small", placeholder: 'days' %> days<br/> 
+		<%= f.text_field :hours, class: "input-small", placeholder: 'hours' %> hours<br/>
+		<%= f.text_field :minutes, class: "input-small", placeholder: 'minutes' %> minutes
+	</div>
 
 	<div>
 		<%= f.label :how_much %>

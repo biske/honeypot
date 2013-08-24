@@ -33,7 +33,7 @@ class TasksController < ApplicationController
   end
   
   def update
-    params[:duration] = (params[:days].to_i * 86400 + params[:hours].to_i * 3600 + params[:minutes].to_i * 60).to_s
+    params[:task][:duration] = (params[:task][:days].to_i * 86400 + params[:task][:hours].to_i * 3600 + params[:task][:minutes].to_i * 60).to_s
     params[:task].delete(:days)
     params[:task].delete(:hours)
     params[:task].delete(:minutes)
