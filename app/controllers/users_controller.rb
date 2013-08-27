@@ -29,6 +29,7 @@ class UsersController < ApplicationController
     @json = (JSON.parse(@json1) + JSON.parse(@json2)).to_json
   end
   
+  
   private
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password)

@@ -5,6 +5,10 @@ class PointOfView < ActiveRecord::Base
   def gmaps4rails_address
     self.where
   end
+  def gmaps4rails_infowindow
+      "<div>Where: #{self.where}</div>
+      <div>How much: #{self.how_much}$</div>"
+  end
   
   def days
     if self.duration

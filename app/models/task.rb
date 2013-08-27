@@ -9,6 +9,9 @@ class Task < ActiveRecord::Base
   def gmaps4rails_address
     self.where
   end
+  def gmaps4rails_infowindow
+      "<div>This is infowindow.</div>"
+  end
   
   def days
     if self.duration
