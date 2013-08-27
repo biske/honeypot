@@ -1,6 +1,6 @@
 class Task < ActiveRecord::Base
   belongs_to :user
-  acts_as_gmappable
+  acts_as_gmappable check_process: false
   mount_uploader :image, ImageUploader
   #attr_accessible :title, :who, :what, :where, :when, :duration, :how_much, :contact, :image
   

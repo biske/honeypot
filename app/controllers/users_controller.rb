@@ -10,7 +10,23 @@ class UsersController < ApplicationController
   end
   
   def dashboard
-    @json = Task.all.to_gmaps4rails
+    @json1 = PointOfView.all.to_gmaps4rails do |locations, marker|
+      marker.picture({
+                  :picture => "http://www.google.com/intl/en_us/mapfiles/ms/micons/red-dot.png",
+                  :width   => 32,
+                  :height  => 32
+      })
+    end
+
+    @json2= Task.all.to_gmaps4rails do |locations, marker|
+      marker.picture({
+        :picture => "http://www.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png",
+        :width   => 32,
+        :height  => 32
+      })
+    end
+
+    @json = (JSON.parse(@json1) + JSON.parse(@json2)).to_json
   end
   
   private
