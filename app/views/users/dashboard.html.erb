@@ -6,7 +6,6 @@
 <br />
 <br />
 <%= gmaps({
-			"map_options"	=> { "auto_zoom" => false, "zoom" => 15 },
 			"markers" 		=> { "data" => @json }
 		})
 %>
@@ -72,3 +71,20 @@
 </table>
 
 <%= link_to "Create new point of view", new_user_point_of_view_path(current_user), class: "btn btn-primary" %>
+
+
+<% content_for :scripts do %>
+    <script type="text/javascript" charset="utf-8">
+      Gmaps.map.callback = function() {
+        if (Gmaps.map.markers.length == 1) {
+         //only one marker, choose the zoom level you expect
+         setTimeout(function() { Gmaps.map.serviceObject.setZoom(15);}, 50);
+        }
+        else{
+         //more than one marker, let's auto_zoom
+         Gmaps.map.map_options.auto_zoom = true;
+         Gmaps.map.adjustMapToBounds();
+        }
+      }
+    </script>
+<% end %>
