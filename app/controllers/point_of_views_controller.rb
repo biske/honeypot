@@ -31,9 +31,8 @@ class PointOfViewsController < ApplicationController
 
     if @point_of_view.save
       flash[:notice] = 'Point of view was successfully created.'
-      redirect_to user_dashboard_path(current_user)
+      redirect_to user_point_of_view_path(current_user, @point_of_view)
     else
-      flash[:notice] = 'Correct errors.'
       render action: 'new'
     end
   end
@@ -46,7 +45,7 @@ class PointOfViewsController < ApplicationController
     params[:point_of_view].delete(:minutes)
     if @point_of_view.update(point_of_view_params)
       flash[:notice] = 'Point of view was successfully updated.'
-      redirect_to user_dashboard_path(current_user)
+      redirect_to user_point_of_view_path(current_user, @point_of_view)
     else
       render action: 'edit'
     end

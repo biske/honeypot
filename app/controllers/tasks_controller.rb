@@ -15,10 +15,10 @@ class TasksController < ApplicationController
     @task = current_user.tasks.build(params[:task])
     if @task.save
       flash[:notice] = "Task successfuly created."
-      redirect_to user_dashboard_path(current_user)
+      redirect_to user_task_path(current_user, @task)
     else
       flash[:notice] = "Correct errors."
-      redirect_to new_user_task_path(current_user)
+      redirect_to :new
     end
   end
   
@@ -40,7 +40,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     if @task.update_attributes(params[:task])
       flash[:notice] = "Task successfuly updated."
-      redirect_to [current_user, @task]
+      redirect_to user_task_path(current_user, @task)
     else
       render action: "edit"
     end
