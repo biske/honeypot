@@ -10,7 +10,8 @@ class Task < ActiveRecord::Base
     self.where
   end
   def gmaps4rails_infowindow
-      "<div>This is infowindow.</div>"
+      "<div>Title: #{self.title}</div>
+      <div>How much: #{self.how_much}$</div>"
   end
   
   def days
