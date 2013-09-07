@@ -1,4 +1,6 @@
 class Task < ActiveRecord::Base
+  include ActionView::Helpers
+
   belongs_to :user
   acts_as_gmappable check_process: false
   mount_uploader :image, ImageUploader
@@ -10,7 +12,8 @@ class Task < ActiveRecord::Base
     self.where
   end
   def gmaps4rails_infowindow
-      "<div>Title: #{self.title}</div>
+      "<a href='/users/" + self.user_id.to_s + "/tasks/" + self.id.to_s + "'>Go to task</a>
+      <div>Title: #{self.title}</div>
       <div>How much: #{self.how_much}$</div>"
   end
   

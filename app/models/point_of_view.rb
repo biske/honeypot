@@ -6,7 +6,8 @@ class PointOfView < ActiveRecord::Base
     self.where
   end
   def gmaps4rails_infowindow
-      "<div>Where: #{self.where}</div>
+      "<a href='/users/" + self.user_id.to_s + "/point_of_views/" + self.id.to_s + "'>Go to point of view</a>
+      <div>Where: #{self.where}</div>
       <div>How much: #{self.how_much}$</div>"
   end
   
