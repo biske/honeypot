@@ -25,7 +25,13 @@ class TasksController < ApplicationController
   def show
     # Double check it :)
     @task = Task.find(params[:id])
-    @json = @task.to_gmaps4rails
+    @json = @task.to_gmaps4rails do |locations, marker|
+      marker.picture({
+                  :picture => "http://www.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png",
+                  :width   => 32,
+                  :height  => 32
+      })
+    end
   end
   
   def edit
