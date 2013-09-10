@@ -1,6 +1,8 @@
 $(function() {
 	$("#task_when").datetimepicker({
-		dateFormat: 'dd-mm-yy'  		
+		dateFormat: 'dd-mm-yy',
+		timeFormat: 'HH:mm z', 
+		showTimezone: false 		
   });
   
   $("#task_days").spinner({ min: 0 });

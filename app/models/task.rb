@@ -1,6 +1,4 @@
 class Task < ActiveRecord::Base
-  include ActionView::Helpers
-
   belongs_to :user
   acts_as_gmappable check_process: false
   mount_uploader :image, ImageUploader
@@ -16,7 +14,19 @@ class Task < ActiveRecord::Base
       <div>Title: #{self.title}</div>
       <div>How much: #{self.how_much}$</div>"
   end
-  
+
+  def self.active
+    Task.all.to_a.keep_if do |task|
+      task.active?
+    end
+  end
+
+  def active?
+    if (self.when + self.duration) > Time.now.utc
+      true
+    end
+  end
+
   def days
     if self.duration
       self.duration / 86400

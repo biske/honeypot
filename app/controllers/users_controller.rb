@@ -18,7 +18,7 @@ class UsersController < ApplicationController
       })
     end
 
-    @json2= Task.all.to_gmaps4rails do |locations, marker|
+    @json2= Task.active.to_gmaps4rails do |locations, marker|
       marker.picture({
         :picture => "http://www.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png",
         :width   => 32,
