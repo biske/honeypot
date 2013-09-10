@@ -16,3 +16,5 @@
 
 # Ignore image upload folder
 /public/uploads
+
+/public/assets
