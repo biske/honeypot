@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130824205312) do
+ActiveRecord::Schema.define(version: 20130910222527) do
+
+  create_table "bids", force: true do |t|
+    t.text     "description"
+    t.decimal  "how_much"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "point_of_views", force: true do |t|
     t.text     "what"

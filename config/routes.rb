@@ -1,4 +1,6 @@
 Honeypot::Application.routes.draw do
+  resources :bids
+
   # resources :point_of_views
 
   get "static_pages/home"
