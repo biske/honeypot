@@ -58,3 +58,30 @@
 	<%= link_to "Update task", edit_user_task_url(current_user, @task), class: 'btn btn-primary' %>
 	<%= link_to "Delete task", [current_user, @task], confirm: 'Are you sure you want to delete this task?', method: 'delete', class: 'btn btn-danger' %>
 <% end %>
+
+<hr />
+
+<h2>Bids</h2>
+<table id="bids_table_id" class="table table-striped table-bordered table-hover">
+	<thead>
+		<tr>
+			<th>
+				Description
+			</th>
+			<th>
+				Price
+			</th>
+			<th>
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<%= render 'bids/bids', bids: @task.bids %>
+	</tbody>
+</table>
+
+<br />
+
+<% unless current_user.bidded?(@task) %>
+	<%= link_to "Create new bid", new_bid_path(task_id: @task.id), class: 'btn btn-primary' %>
+<% end %>

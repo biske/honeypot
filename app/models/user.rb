@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :tasks
   has_many :point_of_views
+  has_many :bids
   # Include default devise modules. Others available are:
   # :token_authenticatable,
   # :lockable, :timeoutable
@@ -15,8 +16,16 @@ class User < ActiveRecord::Base
   validates_presence_of :first_name, :last_name
   validates_uniqueness_of :email, :case_sensitive => false
   
+  def owns?(bid)
+    !!self.bids.find(bid)
+  end
+
+  def bidded?(task)
+    !!self.bids.find_by(task_id: task)
+  end
+
   def fullname
-    self.first_name + " " + self.last_name
+    fullname ||= "#{self.first_name} #{self.last_name}"
   end
   
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)

@@ -1,0 +1,14 @@
+<% bids.each do |bid| %>
+	<tr>
+		<td><%= bid.description %></td>
+		<td><%= bid.how_much %></td>
+		<td>
+			<% if current_user.owns? bid %>
+				<%= link_to "Update", edit_bid_path(bid), class: 'btn btn-primary btn-small' %>
+				<%= link_to "Delete", bid_path(bid), confirm: 'Are you sure you want to delete this bid?', method: 'delete', class: 'btn btn-danger btn-small' %>
+			<% end %>
+		</td>
+	</tr>
+<% end %>
+
+
