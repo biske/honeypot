@@ -17,6 +17,14 @@ class Task < ActiveRecord::Base
       <div>How much: #{self.how_much}$</div>"
   end
 
+  def is_owned_by?(user)
+    self.user == user
+  end
+
+  def is_not_owned_by?(user)
+    !is_owned_by?(user)
+  end
+
   def self.active
     Task.all.to_a.keep_if do |task|
       task.active?

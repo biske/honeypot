@@ -82,6 +82,6 @@
 
 <br />
 
-<% unless current_user.bidded?(@task) %>
+<% if @task.is_not_owned_by?(current_user) && current_user.not_bidded_for?(@task) && @task.active? %>
 	<%= link_to "Create new bid", new_bid_path(task_id: @task.id), class: 'btn btn-primary' %>
 <% end %>

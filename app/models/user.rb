@@ -16,12 +16,13 @@ class User < ActiveRecord::Base
   validates_presence_of :first_name, :last_name
   validates_uniqueness_of :email, :case_sensitive => false
   
-  def owns?(bid)
-    !!self.bids.find(bid)
+
+  def bidded_for?(task)
+    !!self.bids.find_by(task_id: task)
   end
 
-  def bidded?(task)
-    !!self.bids.find_by(task_id: task)
+  def not_bidded_for?(task)
+    !bidded_for?(task)
   end
 
   def fullname
