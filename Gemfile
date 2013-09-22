@@ -25,12 +25,13 @@ group :test, :development do
   gem 'sqlite3'
   # This includes rspec-rails in development mode so that we have access to RSpec-specific generators,
   # and it includes it in test mode in order to run the tests.
-  gem "rspec-rails"
-  
+  gem 'rspec-rails'
 end
 
 group :development do
   gem 'pry'
+  gem 'quiet_assets'
+  gem 'brakeman', require: false
 end
 
 gem 'sass-rails'
@@ -38,12 +39,13 @@ gem 'coffee-rails'
 gem 'uglifier'
 
 group :test do
-  gem "factory_girl_rails"
-  gem "cucumber-rails", require: false
-  gem "capybara", '1.1.4'
-  gem "database_cleaner"
-  gem "launchy"
-  gem "email_spec"  
+  gem 'factory_girl_rails'
+  gem 'cucumber-rails', require: false
+  gem 'capybara', '1.1.4'
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'email_spec'
+  gem 'simplecov', require: false
 end
 
 group :production do
