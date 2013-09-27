@@ -1,7 +1,7 @@
 Honeypot::Application.routes.draw do
-  resources :bids
-
-  # resources :point_of_views
+  resources :bids do
+    get 'select'
+  end
 
   get "static_pages/home"
   get '/help',          to: 'static_pages#help'

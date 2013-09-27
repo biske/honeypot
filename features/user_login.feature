@@ -1,13 +1,13 @@
 Feature: Sign in
 	In order to get access to protected sections of the site
-	A registered user
-	Should be able to sign in
+	As a registered user
+	I want to sign in
 	
 	
 	Scenario: User signs in successfully
-  	Given I exist as a user
-    And I am not logged in
-    When I sign in with valid credentials
-    Then I see a successful sign in message
-    When I return to the site
-    Then I should be signed in
+  	Given I am registered user
+    When I go to login page
+    Then I fill in "user_email" with "foo@bar.com"
+    Then I fill in "user_password" with "foobar"
+    And I press "Sign in" button
+    Then I should see "You are successfully logged in." message

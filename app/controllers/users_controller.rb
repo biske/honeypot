@@ -1,10 +1,13 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!, :except => [:index]
   
+  # Same here like for show. Refactor it.
   def index
     @users = User.all
   end
 
+  # This should be changed. Check if it's current user and redirect to dashboard.
+  # If not then show some info about user.
   def show
     @user = User.find(params[:id])
   end
