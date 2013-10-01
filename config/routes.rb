@@ -1,4 +1,6 @@
 Honeypot::Application.routes.draw do
+  resources :hires
+
   resources :bids do
     get 'select'
   end
