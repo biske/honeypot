@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_many :tasks
   has_many :point_of_views
   has_many :bids
+  has_many :hires
   # Include default devise modules. Others available are:
   # :token_authenticatable,
   # :lockable, :timeoutable
