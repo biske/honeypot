@@ -42,3 +42,7 @@
   <%= link_to "Update point of view", edit_user_point_of_view_url(current_user, @point_of_view), class: 'btn btn-primary' %>
   <%= link_to "Delete point of view", [current_user, @point_of_view], confirm: 'Are you sure you want to delete this point of view?', method: 'delete', class: 'btn btn-danger' %>
 <% end %>
+
+<% if @point_of_view.is_not_owned_by?(current_user) && @point_of_view.active? && @point_of_view.not_hired? %>
+    <%= link_to 'Hire', hires_path(hire: { user_id: current_user.id, point_of_view_id: @point_of_view.id}), method: 'post', class: 'btn btn-primary' %>
+<% end %>

@@ -10,11 +10,6 @@ class HiresController < ApplicationController
   def show
   end
 
-  # GET /hires/new
-  def new
-    @hire = Hire.new
-  end
-
   # GET /hires/1/edit
   def edit
   end
@@ -24,9 +19,9 @@ class HiresController < ApplicationController
     @hire = Hire.new(hire_params)
 
     if @hire.save
-      redirect_to @hire, notice: 'Hire was successfully created.'
+      redirect_to user_point_of_view_path(@hire.user.id, @hire.point_of_view.id), notice: 'Hire was successfully created.'
     else
-      render action: 'new'
+      redirect_to user_point_of_view_path(@hire.user.id, @hire.point_of_view.id), notice: 'Hire wasn\'t successfully create.'
     end
   end
 
