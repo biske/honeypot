@@ -2,7 +2,7 @@
 <p>Last name: <%= current_user.last_name %></p>
 <p>Email: <%= current_user.email if current_user.email %></p>
 
-<%= link_to "Delete account", user_registration_path, confirm: "Are you sure you want to delete account?", method: 'delete', class: 'btn btn-danger' %>
+<%= link_to "Delete account", user_registration_path, data: { confirm: "Are you sure you want to delete account?", method: 'delete' }, class: 'btn btn-danger' %>
 <br />
 <br />
 <%= gmaps({
@@ -31,7 +31,7 @@
 				<td><%= task.what %><td>
 				<td>
 					<%= link_to "Update", edit_user_task_url(current_user, task), class: 'btn btn-small btn-primary' %>
-					<%= link_to "Delete task", [current_user, task], confirm: 'Are you sure you want to delete this task?', method: 'delete', class: 'btn btn-small btn-danger' %>
+					<%= link_to "Delete task", [current_user, task], data: { confirm: 'Are you sure you want to delete this task?' }, method: 'delete', class: 'btn btn-small btn-danger' %>
 				</td>
 			</tr>
 	<% end %>
@@ -63,7 +63,7 @@
 				<td><%= point_of_view.how_much %><td>
 				<td>
 					<%= link_to "Update", edit_user_point_of_view_url(current_user, point_of_view), class: 'btn btn-small btn-primary' %>
-					<%= link_to "Delete task", [current_user, point_of_view], confirm: 'Are you sure you want to delete this task?', method: 'delete', class: 'btn btn-small btn-danger' %>
+					<%= link_to "Delete task", [current_user, point_of_view], data: { confirm: 'Are you sure you want to delete this task?' }, method: 'delete', class: 'btn btn-small btn-danger' %>
 				</td>
 			</tr>
 	<% end %>
