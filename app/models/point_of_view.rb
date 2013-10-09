@@ -1,6 +1,7 @@
 class PointOfView < ActiveRecord::Base
     belongs_to :user
-    has_one :hire
+    has_many :hires
+    
     acts_as_gmappable check_process: false
   
     def gmaps4rails_address
