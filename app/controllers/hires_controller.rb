@@ -23,6 +23,7 @@ class HiresController < ApplicationController
   # POST /hires
   def create
     @hire = Hire.new(hire_params)
+    @hire.user_id = current_user.id
 
     if @hire.save
       redirect_to user_point_of_view_path(id: @hire.point_of_view_id, user_id: current_user.id), notice: 'Hire was successfully created.'
