@@ -24,7 +24,7 @@ class PointOfView < ActiveRecord::Base
     # Get all active point of views
     def self.active
         PointOfView.all.to_a.keep_if do |point_of_view|
-            point_of_view.active? && point_of_view.not_hired?
+            point_of_view.active?
         end
     end
 

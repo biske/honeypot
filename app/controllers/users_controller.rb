@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   end
   
   def dashboard
-    @json1 = PointOfView.all.to_gmaps4rails do |locations, marker|
+    @json1 = PointOfView.active.to_gmaps4rails do |locations, marker|
       marker.picture({
                   :picture => "http://www.google.com/intl/en_us/mapfiles/ms/micons/red-dot.png",
                   :width   => 32,
