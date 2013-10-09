@@ -1,4 +1,4 @@
-<%= form_for(@hire) do |f| %>
+<%= form_for(@hire, html: { class: 'form-signin'}) do |f| %>
   <% if @hire.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@hire.errors.count, "error") %> prohibited this hire from being saved:</h2>
@@ -11,7 +11,16 @@
     </div>
   <% end %>
 
+  <div>
+    <%= f.hidden_field :point_of_view_id %>
+  </div>
+
+  <div>
+    <%= f.label :how_much %><br>
+    <%= f.text_field :how_much, placeholder: 'How much money' %>
+  </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: 'btn btn-primary btn-large' %>
   </div>
 <% end %>

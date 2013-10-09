@@ -16,10 +16,6 @@ class BidsController < ApplicationController
     @bid.task_id = params[:task_id]
   end
 
-  # GET /bids/1/edit
-  def edit
-  end
-
   # POST /bids
   def create
     @bid = Bid.new(bid_params)
@@ -29,6 +25,10 @@ class BidsController < ApplicationController
     else
       render action: 'new'
     end
+  end
+
+  # GET /bids/1/edit
+  def edit
   end
 
   # PATCH/PUT /bids/1

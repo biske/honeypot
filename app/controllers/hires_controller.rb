@@ -6,12 +6,18 @@ class HiresController < ApplicationController
     @hires = Hire.all
   end
 
-  # GET /hires/1
-  def show
+  # GET /bids/select
+  def select
+    @hire = Hire.find(params[:hire_id])
+    if @hire.select
+      redirect_to user_point_of_view_path(id: @hire.point_of_view_id, user_id: current_user.id), notice: 'Hire was successfully selected.'
+    end
   end
 
-  # GET /hires/1/edit
-  def edit
+  # GET /hires/new
+  def new
+    @hire = Hire.new
+    @hire.point_of_view_id = params[:point_of_view_id]
   end
 
   # POST /hires
@@ -19,10 +25,14 @@ class HiresController < ApplicationController
     @hire = Hire.new(hire_params)
 
     if @hire.save
-      redirect_to user_point_of_view_path(@hire.user.id, @hire.point_of_view.id), notice: 'Hire was successfully created.'
+      redirect_to user_point_of_view_path(id: @hire.point_of_view_id, user_id: current_user.id), notice: 'Hire was successfully created.'
     else
-      redirect_to user_point_of_view_path(@hire.user.id, @hire.point_of_view.id), notice: 'Hire wasn\'t successfully create.'
+      render action: 'new'
     end
+  end
+
+  # GET /hires/1/edit
+  def edit
   end
 
   # PATCH/PUT /hires/1

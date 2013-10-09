@@ -26,6 +26,14 @@ class User < ActiveRecord::Base
     !bidded_for?(task)
   end
 
+  def hired?(point_of_view)
+    !!self.hires.find_by(point_of_view_id: point_of_view)
+  end
+
+  def not_hired?(point_of_view)
+    !bidded_for?(point_of_view)
+  end  
+
   def fullname
     fullname ||= "#{self.first_name} #{self.last_name}"
   end

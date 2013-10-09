@@ -1,0 +1,31 @@
+<h2>Hires</h2>
+<table id="hires_table_id" class="table table-striped table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>
+                Price
+            </th>
+            <th>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <% hires.each do |hire| %>
+        <tr>
+            <td><%= hire.how_much %></td>
+            <td>
+                <% if hire.is_owned_by?(current_user) && hire.point_of_view.active? %>
+                    <%= link_to "Update", edit_hire_path(hire), class: 'btn btn-primary btn-small' %>
+                    <%= link_to "Delete", hire_path(hire), confirm: 'Are you sure you want to delete this hire?', method: 'delete', class: 'btn btn-danger btn-small' %>
+                <% end %>
+                
+                <% if hire.selected? %>
+                    <div><i class='icon-ok'></i> Selected</div>
+                <% elsif hire.point_of_view.is_owned_by?(current_user) && hire.point_of_view.active? %>
+                    <%= link_to "Select", hire_select_path(hire), class: 'btn btn-success btn-small' %>
+                <% end %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
