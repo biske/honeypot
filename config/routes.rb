@@ -1,4 +1,6 @@
 Honeypot::Application.routes.draw do
+  resources :bmessages
+
   resources :hires do
     get 'select'
   end

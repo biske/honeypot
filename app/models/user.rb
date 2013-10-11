@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
   end
 
   def not_hired?(point_of_view)
-    !bidded_for?(point_of_view)
+    !hired?(point_of_view)
   end  
 
   def fullname

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @bmessage.content %>
+</p>
+
+<p>
+  <strong>Bid:</strong>
+  <%= @bmessage.bid %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @bmessage.user %>
+</p>
+
+<%= link_to 'Edit', edit_bmessage_path(@bmessage) %> |
+<%= link_to 'Back', bmessages_path %>

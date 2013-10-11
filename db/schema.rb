@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131009200033) do
+ActiveRecord::Schema.define(version: 20131011204838) do
 
   create_table "bids", force: true do |t|
     t.text     "description"
@@ -22,6 +22,17 @@ ActiveRecord::Schema.define(version: 20131009200033) do
     t.integer  "task_id"
     t.boolean  "selected"
   end
+
+  create_table "bmessages", force: true do |t|
+    t.text     "content"
+    t.integer  "bid_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "bmessages", ["bid_id"], name: "index_bmessages_on_bid_id"
+  add_index "bmessages", ["user_id"], name: "index_bmessages_on_user_id"
 
   create_table "hires", force: true do |t|
     t.datetime "created_at"
