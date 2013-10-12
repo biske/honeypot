@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131011204838) do
+ActiveRecord::Schema.define(version: 20131012193302) do
 
   create_table "bids", force: true do |t|
     t.text     "description"
@@ -42,6 +42,17 @@ ActiveRecord::Schema.define(version: 20131011204838) do
     t.decimal  "how_much"
     t.boolean  "selected"
   end
+
+  create_table "hmessages", force: true do |t|
+    t.text     "content"
+    t.integer  "hire_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "hmessages", ["hire_id"], name: "index_hmessages_on_hire_id"
+  add_index "hmessages", ["user_id"], name: "index_hmessages_on_user_id"
 
   create_table "point_of_views", force: true do |t|
     t.text     "what"

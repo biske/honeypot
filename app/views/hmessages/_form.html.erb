@@ -1,4 +1,4 @@
-<%= form_for(@hmessage) do |f| %>
+<%= form_for(@hmessage, html: { class: 'form-signin'}) do |f| %>
   <% if @hmessage.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@hmessage.errors.count, "error") %> prohibited this hmessage from being saved:</h2>
@@ -11,19 +11,14 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_area :content %>
+  <div>
+    <%= f.hidden_field :hire_id %>
   </div>
-  <div class="field">
-    <%= f.label :point_of_view %><br>
-    <%= f.text_field :point_of_view %>
+
+  <div>
+    <%= f.text_area :content, cols: 10, rows: 10, placeholder: 'Your message' %>
   </div>
-  <div class="field">
-    <%= f.label :user %><br>
-    <%= f.text_field :user %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div>
+    <%= f.submit "Send message", class: 'btn btn-primary' %>
   </div>
 <% end %>

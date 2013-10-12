@@ -21,6 +21,7 @@
                 
                 <% if hire.selected? %>
                     <div><i class='icon-ok'></i> Selected</div>
+                    <%= link_to "Messages", hire_path(hire), class: 'btn btn-primary btn-small' %>
                 <% elsif hire.point_of_view.is_owned_by?(current_user) && hire.point_of_view.active? %>
                     <%= link_to "Select", hire_select_path(hire), class: 'btn btn-success btn-small' %>
                 <% end %>

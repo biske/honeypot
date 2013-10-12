@@ -1,4 +1,8 @@
-<p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_hire_path(@hire) %> |
-<%= link_to 'Back', hires_path %>
+<div>
+    <strong>How much:</strong>
+    <%= @hire.how_much %>
+</div>
+<br>
+<%= link_to 'New message', new_hmessage_path(hire_id: @hire.id), class: 'btn btn-primary' %>
+<br>
+<%= render 'hmessages/hmessages', hmessages: @hire.hmessages %>
