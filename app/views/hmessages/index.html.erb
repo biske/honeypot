@@ -1,0 +1,31 @@
+<h1>Listing hmessages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th>Point of view</th>
+      <th>User</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hmessages.each do |hmessage| %>
+      <tr>
+        <td><%= hmessage.content %></td>
+        <td><%= hmessage.point_of_view %></td>
+        <td><%= hmessage.user %></td>
+        <td><%= link_to 'Show', hmessage %></td>
+        <td><%= link_to 'Edit', edit_hmessage_path(hmessage) %></td>
+        <td><%= link_to 'Destroy', hmessage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Hmessage', new_hmessage_path %>

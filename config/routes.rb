@@ -1,4 +1,6 @@
 Honeypot::Application.routes.draw do
+  resources :hmessages
+
   resources :bmessages
 
   resources :hires do

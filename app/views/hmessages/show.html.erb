@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @hmessage.content %>
+</p>
+
+<p>
+  <strong>Point of view:</strong>
+  <%= @hmessage.point_of_view %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @hmessage.user %>
+</p>
+
+<%= link_to 'Edit', edit_hmessage_path(@hmessage) %> |
+<%= link_to 'Back', hmessages_path %>
