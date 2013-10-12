@@ -1,6 +1,6 @@
 class Task < ActiveRecord::Base
   belongs_to :user
-  has_many :bids
+  has_many :bids, dependent: :destroy
 
   acts_as_gmappable check_process: false
   mount_uploader :image, ImageUploader

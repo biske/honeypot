@@ -1,5 +1,5 @@
 class BmessagesController < ApplicationController
-
+  before_action :authenticate_user!
   # GET /bmessages/new
   def new
     @bmessage = Bmessage.new

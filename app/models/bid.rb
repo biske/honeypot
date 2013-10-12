@@ -1,7 +1,7 @@
 class Bid < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :task
-  has_many :bmessages
+  has_many :bmessages, dependent: :destroy
 
 	def is_owned_by?(user)
     self.user == user

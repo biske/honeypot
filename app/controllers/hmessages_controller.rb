@@ -1,5 +1,6 @@
 class HmessagesController < ApplicationController
-
+  before_action :authenticate_user!
+  
   # GET /hmessages/new
   def new
     @hmessage = Hmessage.new

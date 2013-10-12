@@ -1,6 +1,6 @@
 class PointOfView < ActiveRecord::Base
     belongs_to :user
-    has_many :hires
+    has_many :hires, dependent: :destroy
     
     acts_as_gmappable check_process: false
   

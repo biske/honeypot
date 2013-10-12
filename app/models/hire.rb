@@ -1,7 +1,7 @@
 class Hire < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :point_of_view
-    has_many :hmessages
+    has_many :hmessages, dependent: :destroy
 
     def is_owned_by?(user)
         self.user == user

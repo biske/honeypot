@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  has_many :tasks
-  has_many :point_of_views
+  has_many :tasks, dependent: :destroy
+  has_many :point_of_views, dependent: :destroy
   has_many :bids
   has_many :hires
   # Include default devise modules. Others available are:
