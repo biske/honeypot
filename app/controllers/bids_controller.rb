@@ -1,13 +1,18 @@
 class BidsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_bid, only: [:edit, :update, :destroy]
+  before_action :set_bid, only: [:show, :edit, :update, :destroy]
 
   # GET /bids/select
   def select
+    # Add :select action in set_bid callback and remove line below.
     @bid = Bid.find(params[:bid_id])
     if @bid.select
       redirect_to user_task_path(id: @bid.task_id, user_id: current_user.id), notice: 'Bid was successfully selected.'
     end
+  end
+
+  # GET /bid/1
+  def show
   end
 
   # GET /bids/new

@@ -1,0 +1,15 @@
+<h2>Messages</h2>
+<div class="media ">
+    <% bmessages.each do |bmessage| %>
+        <div class="media-body">
+            <h4 class="media-heading">
+                Message: <%= bmessage.content %>
+            </h4>
+            <div class="media-body">
+                Sent by: <%= bmessage.user.fullname %><br>
+                Time: <%= bmessage.created_at %>
+            </div>
+        </div>
+        <hr>
+    <% end %>
+</div>

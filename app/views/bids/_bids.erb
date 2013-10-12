@@ -25,6 +25,8 @@
 
 				<% if bid.selected? %>
 					<div><i class='icon-ok'></i> Selected</div>
+					<%= link_to "Messages", bid_path(bid), class: 'btn btn-primary btn-small' %>
+
 				<% elsif bid.task.is_owned_by?(current_user) && bid.task.active? %>
 					<%= link_to "Select", bid_select_path(bid), class: 'btn btn-success btn-small' %>
 				<% end %>

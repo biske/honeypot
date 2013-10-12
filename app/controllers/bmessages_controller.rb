@@ -13,21 +13,23 @@ class BmessagesController < ApplicationController
   # GET /bmessages/new
   def new
     @bmessage = Bmessage.new
-  end
-
-  # GET /bmessages/1/edit
-  def edit
+    @bmessage.bid_id = params[:bid_id]
   end
 
   # POST /bmessages
   def create
     @bmessage = Bmessage.new(bmessage_params)
-
+    @bmessage.user_id = current_user.id
+    @bmessage.bid_id = bmessage_params[:bid_id]
     if @bmessage.save
-      redirect_to @bmessage, notice: 'Bmessage was successfully created.'
+      redirect_to bid_path(@bmessage.bid.id), notice: 'Bmessage was successfully created.'
     else
       render action: 'new'
     end
+  end
+
+  # GET /bmessages/1/edit
+  def edit
   end
 
   # PATCH/PUT /bmessages/1

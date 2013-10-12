@@ -1,0 +1,8 @@
+<div>
+    <strong>How much:</strong>
+    <%= @bid.how_much %>
+</div>
+<br>
+<%= link_to 'New message', new_bmessage_path(bid_id: @bid.id), class: 'btn btn-primary' %>
+<br>
+<%= render 'bmessages/bmessages', bmessages: @bid.bmessages %>
