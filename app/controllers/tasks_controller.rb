@@ -12,7 +12,7 @@ class TasksController < ApplicationController
     params[:task].delete(:days)
     params[:task].delete(:hours)
     params[:task].delete(:minutes)
-    @task = current_user.tasks.build(params[:task])
+    @task = current_user.tasks.build(task_params)
     
     if @task.save
       flash[:notice] = "Task successfuly created."
