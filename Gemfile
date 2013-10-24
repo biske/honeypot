@@ -1,7 +1,7 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 ruby '2.0.0'
 
-gem 'rails', '4.0.0'
+gem 'rails', '>= 4.0.0'
 gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
@@ -15,11 +15,11 @@ gem 'carrierwave'
 gem 'rmagick'
 
 # Decrecation
-gem 'protected_attributes'
-gem 'rails-observers'
-gem 'actionpack-page_caching'
-gem 'actionpack-action_caching'
-gem 'activerecord-deprecated_finders'
+# gem 'protected_attributes'
+# gem 'rails-observers'
+# gem 'actionpack-page_caching'
+# gem 'actionpack-action_caching'
+# gem 'activerecord-deprecated_finders'
 
 group :test, :development do
   gem 'sqlite3'
@@ -43,7 +43,7 @@ gem 'uglifier'
 group :test do
   gem 'factory_girl_rails'
   gem 'cucumber-rails', require: false
-  gem 'capybara', '1.1.4'
+  gem 'capybara'
   gem 'database_cleaner'
   gem 'launchy'
   gem 'email_spec'
