@@ -60,6 +60,6 @@ class HiresController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def hire_params
-      params[:hire]
+      params.require(:hire).permit(:how_much, :selected, :user_id, :point_of_view_id)
     end
 end
